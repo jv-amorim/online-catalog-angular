@@ -1,0 +1,31 @@
+<header>
+    <h1 class="title">Catálogo Online</h1>
+    <button id="shopping-cart-button">
+        <fa-icon [icon]="faShoppingCart"></fa-icon>
+    </button>
+</header>
+<div>
+    <p class="subtitle">Olá! Selecione os produtos desejados:</p>
+    <div id="products-container">
+        <div 
+            *ngFor="let cartItem of cartItems" 
+            (click)="increaseCartItemQuantity(cartItem.product.id)"
+            class="product-item"
+        >
+            <div class="counter">{{cartItem.quantity}}</div>
+            <div class="image-container">
+                <img src="assets/{{cartItem.product.imagePath}}" alt="Product">
+            </div>
+            <div class="details">
+                <p class="product-name">{{cartItem.product.name}}</p>
+                <p class="product-price">{{cartItem.product.price | currency:'BRL':'R$ ' }}</p>
+            </div>
+        </div>
+    </div>
+    <div id="cart-access-container">
+        <button id="cart-access-button">
+            Acessar o carrinho
+            <fa-icon [icon]="faShoppingCart" ></fa-icon>
+        </button>
+    </div>
+</div>
