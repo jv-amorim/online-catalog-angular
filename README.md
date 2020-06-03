@@ -28,22 +28,10 @@ https://jv-amorim.github.io/online-catalog-angular/
 
 <p align="center">
   <kbd>
-    <img alt="Catalog Desktop 01" src="readme-img/Catalog-Desktop-01.png">
+    <img alt="Catalog Desktop" src="readme-img/Catalog-Desktop.gif">
   </kbd>
   <kbd>
-    <img alt="Catalog Desktop 02" src="readme-img/Catalog-Desktop-02.png">
-  </kbd>
-  <kbd>
-    <img alt="Catalog Desktop 03" src="readme-img/Catalog-Desktop-03.png">
-  </kbd>
-  <kbd>
-    <img alt="Catalog Mobile 01" src="readme-img/Catalog-Mobile-01.png">
-  </kbd>
-  <kbd>
-    <img alt="Catalog Mobile 02" src="readme-img/Catalog-Mobile-02.png">
-  </kbd>
-  <kbd>
-    <img alt="Catalog Mobile 03" src="readme-img/Catalog-Mobile-03.png">
+    <img alt="Catalog Mobile" src="readme-img/Catalog-Mobile.png">
   </kbd>
 </p>
 
