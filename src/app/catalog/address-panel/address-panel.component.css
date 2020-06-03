@@ -1,0 +1,106 @@
+#address-panel {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+#address-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px 0px 40px 0px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.342);
+    font-size: small;
+    width: 60%;
+}
+
+@media only screen and (max-width: 700px) {
+    #address-content {
+        width: 95%;
+    }
+}
+
+#address-header {
+    color: #202020;
+    margin-left: 20px;
+}
+
+.close-button {
+    margin-right: 15px;
+}
+
+.close-button {
+    float: right;
+    margin-right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #202020;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#whatsapp-container {
+    margin-top: 35px;
+    text-align: center;
+}
+
+#whatsapp-button {
+    text-decoration: none;
+    padding: 10px 40px 10px 10px;
+    background-color: rgb(25, 182, 46);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    font-size: large;
+    width: 200px;
+    position: relative;
+}
+
+#whatsapp-button:hover {
+    background-color: rgb(7, 141, 25);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#whatsapp-button .icon {
+    position: absolute;
+    top: 9px;
+    right: 7px;
+}
+
+#address-form-container {
+    color: #202020;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#address-form-container .form-panel {
+    flex-direction: column;
+    display: flex;
+}
+
+#address-form-container .form-row {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#address-form-container input {
+    padding: 5px 15px;
+    height: 25px;
+    width: 90%;
+    border: rgb(155, 155, 155) solid 1px;
+    border-radius: 3px;
+}

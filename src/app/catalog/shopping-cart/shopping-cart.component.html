@@ -1,0 +1,75 @@
+<div id="cart-panel">
+    <div id="cart-content">
+        <div id="cart-header">
+            <fa-icon 
+                [icon]="faTimesCircle" 
+                class="close-button" 
+                (click)="closeShoppingCartPanel()"
+            >
+            </fa-icon>
+            <h1>Carrinho</h1>
+        </div>
+
+        <div id="cart-items">
+            <table>
+                <colgroup>
+                    <col span="1" style="width: 30%;" />
+                    <col span="1" style="width: 15%;" />
+                    <col span="1" style="width: 30%;" />
+                    <col span="1" style="width: 30%;" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quant.</th>
+                        <th>Preço</th>
+                        <th>Ações</th>
+                    </tr>
+                    <tr *ngFor="let cartItem of shoppingCart.cartItems" class="cart-item">
+                        <ng-container *ngIf="cartItem.quantity > 0">
+                            <td>
+                                <p class="cart-item-name">{{cartItem.product.name}}</p>
+                            </td>
+                            <td>{{cartItem.quantity}}</td>
+                            <td>
+                                {{cartItem.subtotalPrice | currency:'BRL':'R$ '}}
+                            </td>
+                            <td>
+                                <div class="cart-item-buttons">
+                                    <fa-icon 
+                                        [icon]="faPlusCircle" 
+                                        class="cart-button" 
+                                        (click)="increaseCartItemQuantity(cartItem.product.id)"
+                                    >
+                                    </fa-icon>
+                                    <fa-icon 
+                                        [icon]="faMinusCircle" 
+                                        class="cart-button" 
+                                        (click)="decreaseCartItemQuantity(cartItem.product.id)"
+                                    >
+                                    </fa-icon>
+                                </div>
+                            </td>
+                        </ng-container>
+                    </tr>
+
+                    <tr>
+                        <td><b>Total</b></td>
+                        <td>
+                            {{shoppingCart.totalItems}}
+                        </td>
+                        <td class="total-price">
+                            {{shoppingCart.totalPrice | currency:'BRL':'R$ ' }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="order-confirmation-container">
+            <a id="order-confirmation-button" (click)="openAddressPanel()">
+                Confirmar
+            </a>
+        </div>
+    </div>
+</div>

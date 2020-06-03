@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { CartItem } from '../models/cart-item';
+import { ShoppingCart } from '../models/shopping-cart';
 import { PRODUCTS } from '../models/product-mock';
 
 @Injectable({
@@ -9,44 +10,57 @@ import { PRODUCTS } from '../models/product-mock';
 })
 
 export class ShoppingCartService {
-  private cartItems: CartItem[] = [];
+  private shoppingCart: ShoppingCart;
   
   constructor() {
+    this.shoppingCart = new ShoppingCart([], 0, 0);
     PRODUCTS.forEach(product => 
-      this.cartItems.push({ product: product, quantity: 0, totalPrice: 0 })
+      this.shoppingCart.cartItems
+      .push({ product: product, quantity: 0, subtotalPrice: 0 })
     );
   }
 
+  getShoppingCart(): Observable<ShoppingCart> {
+    return of(this.shoppingCart);
+  }
+
   getAllCartItems(): Observable<CartItem[]> {
-    return of(this.cartItems);
+    return of(this.shoppingCart.cartItems);
   }
 
-  getCartTotalPrice(): Observable<number> {
-    return of(this.cartItems.reduce((total, current) => total + current.totalPrice, 0));
-  }
-
-  getCartTotalItems(): Observable<number> {
-    return of(this.cartItems.reduce((total, current) => total + current.quantity, 0));
-  }
-
-  changeCartItemQuantity(productId: number, operation: string): Observable<CartItem[]> {
-    
-    const index = this.cartItems.findIndex(c => c.product.id == productId);
+  changeCartItemQuantity(productId: number, operation: string): Observable<ShoppingCart> {
+    const index = this.shoppingCart.cartItems.findIndex(c => c.product.id == productId);
 
     if (index !== -1) {
       if (operation === '+')
-        this.cartItems[index].quantity++;
+        this.shoppingCart.cartItems[index].quantity++;
       else if (operation === '-')
-        this.cartItems[index].quantity--;
+        this.shoppingCart.cartItems[index].quantity--;
 
-      this.cartItems[index].totalPrice = this.calculateCartItemTotalPrice(index);
+      this.shoppingCart.cartItems[index].subtotalPrice = this.calculateSubtotalPrice(index);
+      this.shoppingCart.totalPrice = this.calculateCartTotalPrice();
+      this.shoppingCart.totalItems = this.calculateCartTotalItems();
     }
     
-    return of(this.cartItems);
+    return of(this.shoppingCart);
   }
 
-  private calculateCartItemTotalPrice(cartItemIndex: number): number {
-    const cartItem = this.cartItems[cartItemIndex];
+  private calculateSubtotalPrice(cartItemIndex: number): number {
+    const cartItem = this.shoppingCart.cartItems[cartItemIndex];
     return cartItem.quantity * cartItem.product.price;
+  }
+
+  private calculateCartTotalPrice(): number {
+    return (
+      this.shoppingCart.cartItems
+      .reduce((total, current) => total + current.subtotalPrice, 0)
+    );
+  }
+
+  private calculateCartTotalItems(): number {
+    return (
+      this.shoppingCart.cartItems
+      .reduce((total, current) => total + current.quantity, 0)
+    );
   }
 }

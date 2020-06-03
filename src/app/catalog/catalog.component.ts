@@ -27,6 +27,11 @@ export class CatalogComponent implements OnInit {
 
   increaseCartItemQuantity(productId: number): void {
     this.shoppingCartService.changeCartItemQuantity(productId, '+')
-      .subscribe(cartItems => this.cartItems = cartItems);
+      .subscribe(shoppingCart => this.cartItems = shoppingCart.cartItems);
+  }
+
+  openShoppingCartPanel(): void {
+    const shoppingCartPanel = document.getElementById('cart-panel');
+    shoppingCartPanel.style.display = 'block';
   }
 }

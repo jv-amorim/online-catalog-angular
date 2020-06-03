@@ -1,9 +1,10 @@
 <header>
     <h1 class="title">Catálogo Online</h1>
-    <button id="shopping-cart-button">
+    <button id="shopping-cart-button" (click)="openShoppingCartPanel()">
         <fa-icon [icon]="faShoppingCart"></fa-icon>
     </button>
 </header>
+
 <div>
     <p class="subtitle">Olá! Selecione os produtos desejados:</p>
     <div id="products-container">
@@ -23,9 +24,12 @@
         </div>
     </div>
     <div id="cart-access-container">
-        <button id="cart-access-button">
+        <button id="cart-access-button" (click)="openShoppingCartPanel()">
             Acessar o carrinho
             <fa-icon [icon]="faShoppingCart" ></fa-icon>
         </button>
     </div>
 </div>
+
+<app-shopping-cart></app-shopping-cart>
+<app-address-panel></app-address-panel>
