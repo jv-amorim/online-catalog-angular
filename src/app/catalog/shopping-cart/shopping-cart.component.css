@@ -32,17 +32,17 @@
     margin-left: 20px;
 }
 
-.close-button {
-    margin-right: 15px;
-}
-
 .cart-button, 
 .close-button {
     float: right;
     margin-right: 15px;
     color: #aaa;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
+}
+
+.close-button {
+    margin-right: 15px;
 }
 
 .cart-button:hover,
@@ -69,7 +69,7 @@
 }
 
 .cart-item-buttons {
-    margin-left: 5px;
+    margin-left: 6px;
     float: none;
 }
 

@@ -9,5 +9,62 @@
             </fa-icon>
             <h1>Endereço</h1>
         </div>
+
+        <div id="address-form-container">
+            <div class="form-panel">
+                <div class="form-row">
+                    <input 
+                        type="text" 
+                        id="address-name" 
+                        placeholder="Nome de quem receberá a entrega" 
+                        (input)="setAddress()"
+                    />
+                    <br />
+                </div>
+                <div class="form-row">
+                    <input 
+                        type="text" 
+                        id="address-street" 
+                        placeholder="Logradouro (rua, avenida, etc.)" 
+                        (input)="setAddress()"
+                    />
+                    <br />
+                </div>
+                <div class="form-row">
+                    <input 
+                        type="text" 
+                        id="address-houseNumber" 
+                        placeholder="Nº" 
+                        (input)="setAddress()"
+                    />
+                    <br />
+                </div>
+                <div class="form-row">
+                    <input 
+                        type="text" 
+                        id="address-complement" 
+                        placeholder="Complemento (apto, bloco, etc.)" 
+                        (input)="setAddress()"
+                    />
+                    <br />
+                </div>
+                <div class="form-row">
+                    <input 
+                        type="text" 
+                        id="address-neighborhood" 
+                        placeholder="Bairro" 
+                        (input)="setAddress()"
+                    />
+                    <br />
+                </div>
+            </div>
+        </div>
+        
+        <div id="whatsapp-container">
+            <a id="whatsapp-button" (click)="sendOrderByWhatsApp()">
+                Enviar o pedido 
+                <fa-icon [icon]="faWhatsapp" class="icon"></fa-icon>
+            </a>
+        </div>
     </div>
 </div>

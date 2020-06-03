@@ -33,14 +33,10 @@
 }
 
 .close-button {
-    margin-right: 15px;
-}
-
-.close-button {
     float: right;
     margin-right: 15px;
     color: #aaa;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -57,16 +53,14 @@
 }
 
 #whatsapp-button {
-    text-decoration: none;
-    padding: 10px 40px 10px 10px;
+    padding: 10px 10px 10px 10px;
     background-color: rgb(25, 182, 46);
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
     border: none;
     border-radius: 5px 5px 5px 5px;
-    color: white;
+    text-decoration: none;
     font-size: large;
-    width: 200px;
-    position: relative;
+    color: white;
 }
 
 #whatsapp-button:hover {
@@ -76,9 +70,8 @@
 }
 
 #whatsapp-button .icon {
-    position: absolute;
-    top: 9px;
-    right: 7px;
+    font-size: 25px;
+    padding-left: 3px;
 }
 
 #address-form-container {
