@@ -15,8 +15,8 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 })
 
 export class AddressPanelComponent implements OnInit {
+  private cookieKey: string = 'address';
   address: Address = new Address();
-  cookieKey: string = 'address';
 
   faTimesCircle = faTimesCircle;
   faWhatsapp = faWhatsapp;
